@@ -1,7 +1,11 @@
 import Image from "next/image";
+import Header from "../shared/widgets/header/header";
 
-export default function Home() {
+export default function Page() {
   return (
-    <div className="text-4xl">Page</div>
+    <div>
+      <Header/>
+    </div>
   );
 }
+ 

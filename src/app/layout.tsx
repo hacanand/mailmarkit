@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../shared/styles/globals.css";
 const inter = Inter({ subsets: ["latin"] });
+import Providers from "../shared/utils/Providers";
 
 export const metadata: Metadata = {
-  title: "MailMarkIt",
-  description: "Mail Mark It",
+  title: "mailmarkit",
+  description: "mailmarkit is a simple email marketing tool.",
   // icons: {
   //   icon: "/favicon.ico",
   // }
@@ -36,11 +37,13 @@ export default function RootLayout({
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <link rel="manifest" href="/site.webmanifest" />
+        {/* <link rel="manifest" href="/site.webmanifest" /> */}
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
