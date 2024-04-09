@@ -1,10 +1,10 @@
-import Image from "next/image";
-import Header from "../shared/widgets/header/header";
+ 
+import  Home  from "@/modules/home/home";
 
 export default function Page() {
   return (
     <div>
-      <Header/>
+      <Home/>
     </div>
   );
 }

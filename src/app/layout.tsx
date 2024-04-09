@@ -3,7 +3,13 @@ import { Inter } from "next/font/google";
 import "../shared/styles/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 import Providers from "../shared/utils/Providers";
+import localFont from "next/font/local";
 
+const clashDisplay = localFont({
+  src: "../assets/fonts/ClashDisplay-Variable.ttf",
+  variable:"--font-clashDisplay",
+  weight: "700",
+});
 export const metadata: Metadata = {
   title: "mailmarkit",
   description: "mailmarkit is a simple email marketing tool.",
@@ -41,7 +47,7 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className={inter.className}>
+      <body className={`${clashDisplay.variable}`}>
         <Providers>
           {children}
         </Providers>
