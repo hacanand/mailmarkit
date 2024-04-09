@@ -12,12 +12,15 @@ export default function Providers({ children }: ProvidersProps) {
     <NextUIProvider>
       {pathname !== "/dashboard" &&
       pathname !== "/" &&
-      pathname !== "sign-up" &&
-      pathname !== "subscribe" &&
+      pathname !== "/sign-up" &&
+      pathname !== "/subscribe" &&
       pathname !== "/sign-in" ? (
-        <div className="w-full flex"></div>
-      ) : null}
-      <>{children}</>
+    <div className="w-full flex">
+                      
+        </div>
+      ) : (
+        <>{children}</>
+      )}
     </NextUIProvider>
   );
 }

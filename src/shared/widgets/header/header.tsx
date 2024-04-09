@@ -1,7 +1,6 @@
-import React from "react";
+
 import Link from "next/link";
 import { Logo,OnlyLogo } from "./logo";
-
 import NavItems from "./nav.items";
 import Toolbar from "./toolbar";
 
@@ -12,7 +11,7 @@ const Header = () => {
         <Link href={"/"} className="max-md:hidden">
           <Logo />
         </Link>
-        <Link href={"/"} className="md:hidden ">
+        <Link href={"/"} className="md:hidden">
         <OnlyLogo />
         </Link>
        

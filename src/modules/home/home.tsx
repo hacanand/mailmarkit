@@ -1,8 +1,15 @@
-import React from 'react'
+
+import Header from '@/shared/widgets/header/header'
+import Banner from './elements/banner'
+
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <Header />
+      <Banner/>
+    </div>
+    
   )
 }
 

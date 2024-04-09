@@ -1,10 +1,7 @@
 import { ICONS } from "@/shared/utils/icons";
 import { atom } from "jotai";
 // import { PartnersTypes, PlanType, NavItems, DashboardSideBarTypes, subscribersDataTypes } from "@/types";
-type NavItems = {
-    title: string;
-};
-    
+ 
 export const navItems: NavItems[] = [
     {
         title: "Features",
@@ -21,9 +18,7 @@ export const navItems: NavItems[] = [
   
 ];
 
-type PartnersTypes = {
-  url: string;
-};
+ 
 export const partners: PartnersTypes[] = [
   {
     url: "https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,onerror=redirect,format=auto,width=1080,quality=75/www/company-logos-cyber-ink-bg/CompanyLogosCyberInkBG/resume-worded.svg",
@@ -42,9 +37,7 @@ export const partners: PartnersTypes[] = [
   },
 ];
 
-type PlanType = {
-  title: string;
-};
+ 
 export const freePlan: PlanType[] = [
   {
     title: "Up to 2,500 subscribers",
