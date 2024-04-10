@@ -10,7 +10,7 @@ const Branding = () => {
       </h3>
       <div className="w-full text-center  pt-1">
         <h3 className="uppercase bg-yellow-500 rounded p-2 test-2xl text-xl md:text-2xl text-center inline-block font ">
-          NOW POWERING THE WORLD&aposS TOP NEWSLETTER
+          NOW POWERING THE WORLD `&apos;`S TOP NEWSLETTER
         </h3>
       </div>
       <div>
