@@ -45,9 +45,21 @@ const Footer = () => {
                 <li className="text-xl pb-4 cursor-pointer">Analayze</li>
               </ul>
             </div>
+            <div>
+              <ul>
+                <li className="text-xl pb-4 cursor-pointer">Carrers</li>
+                <li className="text-xl pb-4 cursor-pointer">Pricing</li>
+                <li className="text-xl pb-4 cursor-pointer">Shop</li>
+                <li className="text-xl pb-4 cursor-pointer">Compare</li>
+                <li className="text-xl pb-4 cursor-pointer">Love</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+      <p className="text-lg text-center pb-10">
+        © 2024 Mailmarkit, Inc. All rights reserved.
+      </p>
     </footer>
   );
 };

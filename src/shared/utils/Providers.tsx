@@ -1,6 +1,7 @@
 "use client";
+import { useUser } from "@clerk/nextjs";
 import { NextUIProvider } from "@nextui-org/react";
-//import { flushAllTraces } from "next/dist/trace";
+ 
 import { usePathname } from "next/navigation";
 
 interface ProvidersProps {
@@ -8,6 +9,8 @@ interface ProvidersProps {
 }
 export default function Providers({ children }: ProvidersProps) {
   const pathname = usePathname();
+  const { isLoaded } = useUser();
+  if (!isLoaded) return null;
   return (
     <NextUIProvider>
       {pathname !== "/dashboard" &&
