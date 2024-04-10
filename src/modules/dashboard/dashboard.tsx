@@ -1,8 +1,11 @@
 import React from 'react'
+import Main from './elements/main/main'
 
 const dashboard = () => {
   return (
-    <div>dashboard</div>
+      <div>
+          <Main/>
+    </div>
   )
 }
 
