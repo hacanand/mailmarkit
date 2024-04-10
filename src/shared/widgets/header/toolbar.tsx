@@ -4,7 +4,7 @@ import { useUser } from "@clerk/nextjs";
 import React from "react";
 import Image from "next/image";
 
-const toolbar = () => {
+const Toolbar = () => {
   const { user } = useUser();
   return (
     <>
@@ -25,4 +25,4 @@ const toolbar = () => {
   );
 };
 
-export default toolbar;
+export default Toolbar;

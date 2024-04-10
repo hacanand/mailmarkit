@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Logo, OnlyLogo } from "./logo";
 import NavItems from "./nav.items";
 import Toolbar from "./toolbar";
-import Banner from "@/modules/home/elements/banner";
+//import Banner from "@/modules/home/elements/banner";
 
 const Header = () => {
   return (
