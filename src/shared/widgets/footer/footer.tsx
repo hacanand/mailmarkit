@@ -58,7 +58,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-lg text-center pb-10">
-        © 2024 Mailmarkit, Inc. All rights reserved.
+        © {new Date().getFullYear() } Mailmarkit, Inc. All rights reserved.
       </p>
     </footer>
   );

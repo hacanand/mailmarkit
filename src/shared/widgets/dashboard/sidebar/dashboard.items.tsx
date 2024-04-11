@@ -78,7 +78,10 @@ const DashboardItems = ({ bottomContent }: { bottomContent?: boolean }) => {
             )
           )}
           {/* sign-out */}
-          <div className="p-2 py-5 items-center flex cursor-pointer border border-b" onClick={LogoutHandler}>
+          <div
+            className="p-2 py-5 items-center flex cursor-pointer border border-b"
+            onClick={LogoutHandler}
+          >
             <span className="text-3xl mr-2">{ICONS.logOut} </span>
             <span className="text-xl">Sign Out</span>
           </div>
@@ -89,7 +92,7 @@ const DashboardItems = ({ bottomContent }: { bottomContent?: boolean }) => {
             <SidebarFooterLogo />
           </div>
           <p className="text-sm text-center pt-5 pb-10 ">
-            © {2024} Mailmarkit, Inc. All rights reserved.
+            © {new Date().getFullYear()} Mailmarkit, Inc. All rights reserved.
           </p>
         </>
       )}
