@@ -1,7 +1,7 @@
 "use client";
 import { useUser } from "@clerk/nextjs";
 import { NextUIProvider } from "@nextui-org/react";
- 
+ import DashboardSidebar from "@/shared/widgets/dashboard/sidebar/dashboardSidebar";
 import { usePathname } from "next/navigation";
 
 interface ProvidersProps {
@@ -19,7 +19,10 @@ export default function Providers({ children }: ProvidersProps) {
       pathname !== "/subscribe" &&
       pathname !== "/sign-in" ? (
     <div className="w-full flex">
-                      
+            <div className="w-[290px] h-screen overflow-y-scroll ">
+              <DashboardSidebar/>
+            </div>
+            {children}
         </div>
       ) : (
         <>{children}</>

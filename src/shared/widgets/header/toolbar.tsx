@@ -11,13 +11,26 @@ const Toolbar = () => {
       <Button color="primary" className="text-lg font-semibold">
         Start Trial
       </Button>
-      {user ?
+      {user ? (
         <>
-          <Link href={'/dashboard'}>
-            <Image src={user?.imageUrl} alt="profile" width={40} height={40} className="rounded-full" />
+          <Link href={"/dashboard"}>
+            <Image
+              src={user?.imageUrl}
+              alt="profile"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
           </Link>
-        </> : <Link href="/sign-in">login</Link>
-      }
+        </>
+      ) : (
+        <Link
+          href="/sign-in"
+          className="text-lg font-semibold border-2 p-1 px-2 border-blue-600 rounded-xl hover:bg-blue-100"
+        >
+          Login
+        </Link>
+      )}
       {/* <Link href={"/sign-up"} className="text-lg font-semibold border-2 p-1 px-2 border-blue-600 rounded-xl hover:bg-blue-100">
           Login
         </Link> */}
