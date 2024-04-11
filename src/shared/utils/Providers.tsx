@@ -4,6 +4,7 @@ import { NextUIProvider } from "@nextui-org/react";
  //import DashboardSidebar from "@/shared/widgets/dashboard/sidebar/dashboardSidebar";
 import { usePathname } from "next/navigation";
 import DashboardSidebar from "../widgets/dashboard/sidebar/dashboardSidebar";
+import { Toaster } from "react-hot-toast";
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -28,6 +29,7 @@ export default function Providers({ children }: ProvidersProps) {
       ) : (
         <>{children}</>
       )}
+      <Toaster position="top-center" reverseOrder={false} />
     </NextUIProvider>
   );
 }
