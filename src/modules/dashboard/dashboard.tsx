@@ -1,12 +1,11 @@
-import React from 'react'
+ 
 import Main from './elements/main/main'
+import DashboardSidebar from '@/shared/widgets/dashboard/sidebar/dashboardSidebar'
 
-const dashboard = () => {
+const Dashboard = () => {
   return (
-      <div>
-          <Main/>
-    </div>
+      <Main />
   )
 }
 
-export default dashboard
+export default Dashboard
