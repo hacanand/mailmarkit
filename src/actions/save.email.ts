@@ -21,7 +21,7 @@ export const saveEmail = async ({
         content,
       });
 
-      return { message: "Email updated successfully" };
+      return { message: "Draft updated successfully" };
     } else {
       await Email.create({
         title,
@@ -29,7 +29,7 @@ export const saveEmail = async ({
         newsLetterOwnerId,
       });
 
-      return { message: "Email saved successfully" };
+      return { message: "Draft saved successfully" };
     }
   } catch (error) {
     console.log("Error saving email", error);

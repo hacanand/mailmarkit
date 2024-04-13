@@ -1,21 +1,27 @@
 "use client";
 
 import EmailEditor, { EditorRef, EmailEditorProps } from "react-email-editor";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { DefaultJsonData } from "@/assets/mails/default";
 import { useClerk } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { Button } from "@nextui-org/react";
 import { saveEmail } from "@/actions/save.email";
+import { GetEmailDetails } from "@/actions/get.email.details";
 import toast from "react-hot-toast";
 
 const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [jsonData, setJsonData] = useState<any | null>(DefaultJsonData);
   const { user } = useClerk();
   const emailEditorRef = useRef<EditorRef>(null);
   const history = useRouter();
 
+
+  useEffect(() => {
+    getEmailDetails();
+  
+  })
   const exportHtml = () => {
     const unlayer = emailEditorRef.current?.editor;
     unlayer?.exportHtml(async (data) => {
@@ -35,13 +41,23 @@ const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
       await saveEmail({
         title: subjectTitle,
         content: JSON.stringify(design),
-        newsLetterOwnerId: user?.id!, 
+        newsLetterOwnerId: user?.id!,
       }).then((res: any) => {
-        
         toast.success(res?.message);
         history.push("/dashboard/write");
       });
     });
+  };
+
+  const getEmailDetails = async () => {
+    const response = await GetEmailDetails({
+      newsLetterOwnerId: user?.id!,
+      title: subjectTitle,
+    });
+    if (response) {
+      setJsonData(JSON.parse(response?.content));
+    }
+    setLoading(false);
   };
   return (
     <>
