@@ -61,14 +61,15 @@ const Main = () => {
                     onClick={handleCopyClick}
                   >
                     <small
-                      className={`w-[70%] p-1 text-sm overflow-ellipsis whitespace-nowrap copy-text ${
+                      className={`w-[75%] pl-1 text-sm truncate whitespace-nowrap copy-text ${
                         copied ? "bg-blue-200 rounded " : "bg-transparent"
                       }`}
                     >
-                      https://mailmarkit.com/{user?.username}
+                      {process.env.NEXT_PUBLIC_WEB_URL}/subscribe?username={user?.username}
+                      
                     </small>
                     <div className="absolute h-[38px] w-[90px] rounded-r-lg bg-[#DFE7FF] right-0 flex items-center justify-center">
-                      <span className="text-lg">{ICONS.copy}</span>
+                      <span className="text-lg opacity-50">{ICONS.copy}</span>
                       <span className="pl-1">copy</span>
                     </div>
                   </div>
