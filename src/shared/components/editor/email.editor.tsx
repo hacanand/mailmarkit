@@ -1,11 +1,13 @@
 "use client";
 
 import EmailEditor, { EditorRef, EmailEditorProps } from "react-email-editor";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { DefaultJsonData } from "@/assets/mails/default";
 import { useClerk } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { Button } from "@nextui-org/react";
+import { saveEmail } from "@/actions/save.email";
+import toast from "react-hot-toast";
 
 const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
   const [loading, setLoading] = useState(false);
@@ -25,8 +27,21 @@ const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
     const unlayer: any = emailEditorRef.current?.editor;
     unlayer.loadDesign(jsonData);
   };
+
   const saveDraft = async () => {
-    // setLoading(true);
+    const unlayer = emailEditorRef.current?.editor;
+    unlayer?.exportHtml(async (data) => {
+      const { design } = data;
+      await saveEmail({
+        title: subjectTitle,
+        content: JSON.stringify(design),
+        newsLetterOwnerId: user?.id!, 
+      }).then((res: any) => {
+        
+        toast.success(res?.message);
+        history.push("/dashboard/write");
+      });
+    });
   };
   return (
     <>

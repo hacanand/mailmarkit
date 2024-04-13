@@ -22,9 +22,9 @@ const Footer = () => {
               name=""
               id=""
               placeholder="Enter your email..."
-              className="bg-transparent w-full md:w-[50%] border h-[42px] px-2 rounded rounded-r-0 outline-none"
+              className="bg-transparent w-full md:w-[50%] border h-[42px] px-2 rounded-l rounded-r-0 outline-none"
             />
-            <Button className="w-[90px] cursor-pointer rounded-r h-[43px] bg-blue-500 text-xl outline-none">
+            <Button className="w-[90px] cursor-pointer rounded-r rounded-l-none   h-[42px] bg-blue-500 text-xl outline-none">
               Submit
             </Button>
           </div>
@@ -58,7 +58,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-lg text-center pb-10">
-        © {new Date().getFullYear() } Mailmarkit, Inc. All rights reserved.
+        © {new Date().getFullYear()} Mailmarkit, Inc. All rights reserved.
       </p>
     </footer>
   );
