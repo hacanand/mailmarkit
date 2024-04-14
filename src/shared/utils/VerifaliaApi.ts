@@ -1,3 +1,4 @@
+'use server'
 import { VerifaliaRestClient } from "verifalia";
 
 const verifalia = new VerifaliaRestClient({
