@@ -1,5 +1,5 @@
 "use server";
-import Subscriber from "@/models/subscribers.model";
+import Subscriber from "@/models/subscriber.model";
 import { connectDb } from "@/shared/libs/db";
 import validateEmail from "@/shared/utils/VerifaliaApi";
 import { clerkClient } from "@clerk/nextjs";
@@ -40,6 +40,8 @@ export const subscribe = async ({
       const subscriber = await Subscriber.create({
         email,
         newsLetterOwnerId: newsletterOwner?.id,
+        source: "By mailmarkit website",
+        status: "Subscribed",
       });
       return subscriber;
   } catch (error) {

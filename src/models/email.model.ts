@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const { Schema } = mongoose;
+import { Schema } from "mongoose";
 const emailSchema = new Schema(
   {
     title: {
@@ -14,5 +14,5 @@ const emailSchema = new Schema(
   },
   { timestamps: true }
 );
-const Email = mongoose.models.Email || mongoose.model("Email", emailSchema);
+const Email = mongoose.models.Emails || mongoose.model("Emails", emailSchema);
 export default Email;

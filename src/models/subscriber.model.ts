@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema;
+import { Schema } from "mongoose";
 const subscriberSchema = new Schema(
   {
     email: {
@@ -11,15 +11,17 @@ const subscriberSchema = new Schema(
     },
     source: {
       type: String,
-      default: "By mailmarkit website",
+      default: "mailmarkit web app",
     },
     status: {
       type: String,
-      default: "Subscribed",
+      default:"subscribed",
     },
+   
   },
   { timestamps: true }
 );
 const Subscriber =
-  mongoose.model("Subscriber", subscriberSchema) || mongoose.models.Subscriber;
+  mongoose.models.Subscribers ||
+  mongoose.model("Subscribers", subscriberSchema);
 export default Subscriber;

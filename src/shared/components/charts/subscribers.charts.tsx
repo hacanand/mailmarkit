@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+'use client'
+ 
 import {
   LineChart,
   Line,
@@ -6,68 +7,26 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
+import useSubscribersAnalytics from "@/shared/hooks/useSubscribersAnalytics";
 
-// interface subscribersAnalyticsData {
-//   month: string;
-//   count: string;
-// }
-//generating random data
-const data= [
-    {
-        month: "Jan 2024",
-        count: "1000",
-    },
-    {
-        month: "Feb 2024",
-        count: "2000",
-    },
-    {
-        month: "Mar 2024",
-        count: "3000",
-    },
-    {
-        month: "Apr 2024",
-        count: "4000",
-    },
-    {
-        month: "May 2024",
-        count: "5000",
-    },
-    {
-        month: "Jun 2024",
-        count: "6000",
-    },
-    {
-        month: "Jul 2024",
-        count: "7000",
-    },
-    {
-        month: "Aug 2024",
-        count: "8000",
-    },
-    {
-        month: "Sep 2024",
-        count: "9000",
-    },
-    {
-        month: "Oct 2024",
-        count: "1000",
-    },
-    {
-        month: "Nov 2024",
-        count: "1100",
-    },
-    {
-        month: "Dec 2024",
-        count: "1200",
-    },
-];
+interface subscribersAnalyticsData {
+  month: string;
+  count: string;
+}
+ 
 
 const SubscriberCharts = () => {
-  //const [subscribersData, setSubscribersData] = useState ([]);
+const { subscribersData, loading } = useSubscribersAnalytics();
+const data: subscribersAnalyticsData[] = [];
+subscribersData &&
+  subscribersData?.last7Months?.forEach((item: subscribersAnalyticsData) => {
+    data.push({
+      month: item?.month,
+      count: item?.count,
+    });
+  });
   return (
     <div className="my-5 p-5 border rounded bg-white w-full md:h-[55vh] xl:h-[60vh]">
       <div className="w-full flex">
@@ -80,12 +39,11 @@ const SubscriberCharts = () => {
           <span className="pl-2 text-sm opacity-[.7]">Subscribers</span>
         </div>
       </div>
-          {
-             false ? (
+      {loading ? (
         <div className="h-[85%] flex items-center justify-center w-full">
           <h5>Loading...</h5>
         </div>
-       ): (
+      ) : (
         <ResponsiveContainer width="100%" height={"85%"} className={"mt-5"}>
           <LineChart
             width={500}
