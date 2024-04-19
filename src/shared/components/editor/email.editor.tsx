@@ -28,8 +28,8 @@ const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
       const { design, html } = data;
       setJsonData(design);
       await sendEmail({
-        userEmail: ["anandpromax@gmail.com"],
-        subject: subjectTitle,
+        userEmail: [process.env.ADMIN_EMAIL!],
+         subject: subjectTitle,
         content: html,
       }).then((res: any) => toast.success("Email sent successfully"));
       history

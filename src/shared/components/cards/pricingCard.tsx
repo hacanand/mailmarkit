@@ -1,12 +1,24 @@
+import { stripeSubscribe } from "@/actions/stripe.subscribe";
 import { freePlan, GrowPlan, scalePlan } from "@/app/configs/constants";
 import { ICONS } from "@/shared/utils/icons";
+import { useUser } from "@clerk/nextjs";
 import { Button } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 
-const PricingCard = ({active}:{active:string}) => {
-    function handleSubscription(arg0: { price: string; }): void {
-        throw new Error("Function not implemented.");
-    }
+const PricingCard = ({ active }: { active: string }) => {
+  const { user } = useUser();
+  const history = useRouter();
+  const handleSubscription = async ({ price, plan }: { price: string, plan: string }) => {
+    await stripeSubscribe({ price: price, userId: user?.id! }).then((res) => {
+      if (res?.toString().includes("Could not create checkout session!")) {
+        console.error("Could not create checkout session!")
+      } else {
+        history.push(res?.toString()!);
+      }
+    })
+  }
+  
 
   return (
     <div className="w-full md:flex items-start justify-around py-8">
@@ -94,14 +106,18 @@ const PricingCard = ({active}:{active:string}) => {
           color="primary"
           onClick={() =>
             handleSubscription({
-              price: active === "Monthly" ? "49" : "42",
+              price:
+                active === "Monthly"
+                  ? "price_1P7L7gSE7yRaiMqK1bEOpA7j"
+                  : "price_1P7LD0SE7yRaiMqKkGScLG6D",
+              plan: "GROW",
             })
           }
         >
           Get Started
         </Button>
-          </div>
-        {/* {scalePlan} */}
+      </div>
+      {/* {scalePlan} */}
       <div className="md:w-[400px] bg-white rounded p-5 my-5 md:my-0">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +134,7 @@ const PricingCard = ({active}:{active:string}) => {
           ></path>
         </svg>
         <h5 className="font-clashDisplay uppercase text-cyber-ink text-3xl pb-8 border-b border-[#000]">
-         Scale
+          Scale
         </h5>
         <br />
         <div className="border-b pb-8 border-black">
@@ -141,11 +157,13 @@ const PricingCard = ({active}:{active:string}) => {
           className="w-full text-xl !py-6"
           color="primary"
           onClick={() =>
-            handleSubscription(
-              {
-                price: active === "Monthly" ? "99" : "84",
-              } 
-            )
+            handleSubscription({
+              price:
+                active === "Monthly"
+                  ? "price_1P7LFiSE7yRaiMqK5k0oC7St"
+                  : "price_1P7LGKSE7yRaiMqKRag9A0Sq",
+              plan: "SCALE",
+            })
           }
         >
           Get Started

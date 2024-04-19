@@ -1,10 +1,12 @@
 "use client";
 import { useUser } from "@clerk/nextjs";
 import { NextUIProvider } from "@nextui-org/react";
- //import DashboardSidebar from "@/shared/widgets/dashboard/sidebar/dashboardSidebar";
+//import DashboardSidebar from "@/shared/widgets/dashboard/sidebar/dashboardSidebar";
 import { usePathname } from "next/navigation";
 import DashboardSidebar from "../widgets/dashboard/sidebar/dashboardSidebar";
 import { Toaster } from "react-hot-toast";
+import { addStripe } from "@/actions/add.stripe";
+
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -12,7 +14,18 @@ interface ProvidersProps {
 export default function Providers({ children }: ProvidersProps) {
   const pathname = usePathname();
   const { isLoaded } = useUser();
+  const { user } = useUser();
+  const isStripeCustomerIdHas = async () => {
+    //console.log(user);
+    await addStripe({ user: user?.id });
+  };
+
   if (!isLoaded) return null;
+  else {
+    if (user) {
+      isStripeCustomerIdHas();
+    }
+  }
   return (
     <NextUIProvider>
       {pathname !== "/dashboard/new-email" &&
@@ -20,11 +33,11 @@ export default function Providers({ children }: ProvidersProps) {
       pathname !== "/sign-up" &&
       pathname !== "/subscribe" &&
       pathname !== "/sign-in" ? (
-    <div className="w-full flex">
-        <div className="w-[290px] h-screen overflow-y-scroll ">
-              <DashboardSidebar/>
-            </div>
-            {children}
+        <div className="w-full flex">
+          <div className="w-[290px] h-screen overflow-y-scroll ">
+            <DashboardSidebar />
+          </div>
+          {children}
         </div>
       ) : (
         <>{children}</>

@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import  { getEmails } from "@/actions/get.emails";
 import { useClerk } from "@clerk/nextjs";
 import Link from "next/link";
+import { deleteEmail } from "@/actions/delete.email";
 
 
 const Write = () => {
@@ -33,7 +34,10 @@ const Write = () => {
     setEmails(response);
   }
   const deleteHandler = async (id: string) => {
-  // delete email
+    await deleteEmail({ emailId: id }).then(() => {
+      FindEmails();
+    }
+    );
   }
 
   return (
