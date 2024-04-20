@@ -109,7 +109,7 @@ const PricingCard = ({ active }: { active: string }) => {
               price:
                 active === "Monthly"
                   ? "price_1P7L7gSE7yRaiMqK1bEOpA7j"
-                  : "price_1P7LD0SE7yRaiMqKkGScLG6D",
+                  : "price_1P7c7ASE7yRaiMqKMkjeshEh",
               plan: "GROW",
             })
           }
@@ -161,7 +161,7 @@ const PricingCard = ({ active }: { active: string }) => {
               price:
                 active === "Monthly"
                   ? "price_1P7LFiSE7yRaiMqK5k0oC7St"
-                  : "price_1P7LGKSE7yRaiMqKRag9A0Sq",
+                  : "price_1P7c8aSE7yRaiMqK8P5TvDId",
               plan: "SCALE",
             })
           }

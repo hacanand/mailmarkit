@@ -20,7 +20,7 @@ export default function Providers({ children }: ProvidersProps) {
     await addStripe({ user: user?.id });
   };
 
-  if (!isLoaded) return null;
+  if (!isLoaded) { return null; }
   else {
     if (user) {
       isStripeCustomerIdHas();
@@ -32,6 +32,8 @@ export default function Providers({ children }: ProvidersProps) {
       pathname !== "/" &&
       pathname !== "/sign-up" &&
       pathname !== "/subscribe" &&
+      pathname !== "/success" &&
+      pathname !== "/cancel" &&
       pathname !== "/sign-in" ? (
         <div className="w-full flex">
           <div className="w-[290px] h-screen overflow-y-scroll ">

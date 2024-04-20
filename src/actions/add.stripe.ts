@@ -10,7 +10,7 @@ export const addStripe = async ({user}:{user:any}) => {
         await connectDb();
         const user = await currentUser();
         const membership = await Membership.findOne({ userId:user?.id });
-        console.log(membership);
+       // console.log(membership);
         if (membership) {
             return;
         } else {
@@ -26,7 +26,7 @@ export const addStripe = async ({user}:{user:any}) => {
                     stripeCustomerId: customer.id,
                     plan: "LAUNCH",
                 });
-               await membership.save();
+            //    await membership.save();
             }); 
             
             return membership;
