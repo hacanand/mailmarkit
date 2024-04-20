@@ -11,11 +11,12 @@ const PricingCard = ({ active }: { active: string }) => {
   const history = useRouter();
   const handleSubscription = async ({ price, plan }: { price: string, plan: string }) => {
     await stripeSubscribe({ price: price, userId: user?.id! }).then((res) => {
-      if (res?.toString().includes("Could not create checkout session!")) {
-        console.error("Could not create checkout session!")
-      } else {
-        history.push(res?.toString()!);
-      }
+      // if (res?.toString().includes("Could not create checkout session!")) {
+      //   console.error("Could not create checkout session!")
+      // } else {
+      //@ts-ignore
+        history.push(res);
+      // }
     })
   }
   

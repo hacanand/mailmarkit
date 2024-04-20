@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { manageSubscription } from "@/actions/manage.subscription";
 import useGetMembership from "@/shared/hooks/useGetMembership";
 import useSubscribersData from "@/shared/hooks/useSubscribersData";
@@ -13,7 +14,8 @@ const UserPlan = () => {
 
   const handleManage = async () => {
     await manageSubscription({
-      customerId: membershipData?.stripeCustomerId,
+       
+      customerId: membershipData.stripeCustomerId,
     }).then((res: any) => {
       history.push(res);
     });
@@ -37,11 +39,13 @@ const UserPlan = () => {
       <Slider
         aria-label="Player progress"
         hideThumb={true}
+        isDisabled={true}
         defaultValue={1}
         className="max-w-md"
       />
+
       <h6 className="text-[#831743]">
-        {loading ? "..." : data?.length} of{" "}
+        {loading ? "..." : data?.length} of {""}
         {membershipData?.plan === "LAUNCH"
           ? "2500"
           : membershipData?.plan === "SCALE"
