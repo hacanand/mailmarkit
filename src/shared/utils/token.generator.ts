@@ -7,5 +7,9 @@ export const generateApiKey = async() => {
     const token = jwt.sign({ user }, process.env.JWT_SECRET_KEY!);
     return token;
 }
-
+export const regenerateApiKey = async() => {
+    const user = await currentUser();
+    const token = jwt.sign({ user }, process.env.JWT_SECRET_KEY!);
+    return token;
+}
  
