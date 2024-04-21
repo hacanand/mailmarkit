@@ -64,3 +64,25 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f2efef;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #a6a3a3;
+    border-radius: 100vh;
+    padding: 4px;
+    border: 2px solid #f5f6ef;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #918f8f;
+  }
+}

@@ -55,8 +55,8 @@ const Page = () => {
   };
 
   return (
-    <div className="w-full  p-5">
-      <SettingTabs />
+    <div className="w-full p-5">
+        <SettingTabs />
       {activeItem === "Customize Profile" && (
         <div className="w-full h-screen flex justify-center">
           <UserProfile />
@@ -64,14 +64,14 @@ const Page = () => {
       )}
       {activeItem === "API Access" && (
         <div className="w-full  flex justify-center">
-          {data?.plan === "Grow" ? (
+          {data?.plan === "GROW" ? (
             <div className="flex justify-center items">
               <h3>Please update your subscription plan to get access of api</h3>
             </div>
           ) : (
-            <div className="p-4  gap-2 w-full overflow-hidden items-center rounded  border">
-              <h3 className="font-bold">API_KEY:</h3>
-              <p className=" whitespace-pre-line overflow-hidden break-words   copy-text">
+            <div className="p-5 w-full my-2 flex  gap-2 items-center rounded  border ">
+              <h3 className="font-bold ">API_KEY:</h3>
+              <p className="overflow-x-auto scrollbar copy-text">
                 {apiKey}
               </p>
               <div
@@ -79,7 +79,7 @@ const Page = () => {
                 onClick={handleCopy}
               >
                 <span>{ICONS.copy}</span>
-                <span>Copy</span>
+                <span >Copy</span>
               </div>
               <div
                 className=" rounded-xl p-2 cursor-pointer bg-[#DFE7FF] flex items-center justify-center"

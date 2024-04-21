@@ -36,10 +36,13 @@ export default function Providers({ children }: ProvidersProps) {
       pathname !== "/cancel" &&
       pathname !== "/sign-in" ? (
         <div className="w-full flex">
-          <div className="w-[290px] h-screen overflow-y-scroll ">
+          <div className="w-2/12 h-screen scrollbar overflow-y-scroll ">
             <DashboardSidebar />
-          </div>
-          {children}
+            </div>
+            <div className="w-10/12">
+               {children}
+            </div>
+         
         </div>
       ) : (
         <>{children}</>
