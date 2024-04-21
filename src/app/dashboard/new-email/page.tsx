@@ -7,7 +7,7 @@ import Link from "next/link"
 const Page = () => {
     const searchParams = useSearchParams()
     const subject: string = searchParams.get('subject') || ''
-    const subjectTitle= subject.replace(/-/g, ' ')
+    const subjectTitle:string = subject.replace(/-/g, ' ')
     return (
       <div className="w-full flex bg-[#f7f7f7]  ">
         <div className="w-full p-5 bg-white rounded-r-xl">
