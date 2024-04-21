@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     //validate the email
     const validationResponse = await validateEmail({ email:data.email });
     if (validationResponse?.classification === "Undeliverable") {
-      return { error: "Email is not valid" };
+      return new NextResponse("Email is not valid", { status: 400 });
       }
       //create the subscriber
       const subscriber = await Subscriber.create({
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
         status: "Subscribed",
       });
       
-    return NextResponse.json(subscriber, { status: 201 });
+    return  NextResponse.json(subscriber, { status: 201 });
   } catch (error) {
     return new NextResponse("internal error", { status: 500 });
   }

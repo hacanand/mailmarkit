@@ -1,4 +1,4 @@
-//@ts-nocheck
+//
 import { manageSubscription } from "@/actions/manage.subscription";
 import useGetMembership from "@/shared/hooks/useGetMembership";
 import useSubscribersData from "@/shared/hooks/useSubscribersData";

@@ -3,7 +3,7 @@ import { getMembership } from '@/actions/get.membership';
 import  { useEffect, useState } from 'react'
 
 const useGetMembership:any = () => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<any []>([]);
     const [loading, setLoading] = useState<boolean>(true);
     useEffect(() => {
         handleGetMembership();
