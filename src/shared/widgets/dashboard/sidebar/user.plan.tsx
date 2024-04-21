@@ -1,4 +1,3 @@
-//
 import { manageSubscription } from "@/actions/manage.subscription";
 import useGetMembership from "@/shared/hooks/useGetMembership";
 import useSubscribersData from "@/shared/hooks/useSubscribersData";
@@ -14,7 +13,6 @@ const UserPlan = () => {
 
   const handleManage = async () => {
     await manageSubscription({
-       
       customerId: membershipData.stripeCustomerId,
     }).then((res: any) => {
       history.push(res);
