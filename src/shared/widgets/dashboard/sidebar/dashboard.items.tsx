@@ -1,7 +1,6 @@
 import { sideBarBottomItems, sideBarItems } from "@/app/configs/constants";
 import useRouteChange from "@/shared/hooks/useRouteChange";
 import { ICONS } from "@/shared/utils/icons";
- 
 import { useClerk } from "@clerk/nextjs";
 import Link from "next/link";
 import { redirect, usePathname } from "next/navigation";
@@ -42,7 +41,7 @@ const DashboardItems = ({ bottomContent }: { bottomContent?: boolean }) => {
                   item.url === activeRoute && "text-[#463bbd]"
                 } `}
               >
-                {item.title}{" "}
+                {item.title} 
               </span>
             </Link>
           ))}
@@ -85,7 +84,7 @@ const DashboardItems = ({ bottomContent }: { bottomContent?: boolean }) => {
             <span className="text-3xl mr-2">{ICONS.logOut} </span>
             <span className="text-xl">Sign Out</span>
           </div>
-          {/* footer */}
+            
           <br />
           <br />
           <div className="w-full flex justify-center  cursor-pointer">

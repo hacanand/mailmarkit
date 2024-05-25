@@ -31,10 +31,11 @@ const PricingCard = ({ active }: { active: string }) => {
           width="36"
           height="33"
           fill="string"
-          className="mb-4 fill-blue-100"
+          className="mb-4  "
+           
         >
           <path
-            fill="#fff"
+            fill={ "#fff"}
             stroke="#3843D0"
             stroke-width="3"
             d="M33.398 13.25a6.512 6.512 0 0 1 0 6.5l-4.887 8.487a6.512 6.512 0 0 1-5.643 3.263h-9.736a6.512 6.512 0 0 1-5.643-3.263L2.602 19.75a6.512 6.512 0 0 1 0-6.498l4.887-8.488A6.512 6.512 0 0 1 13.132 1.5h9.736a6.512 6.512 0 0 1 5.643 3.263l4.887 8.488Z"
