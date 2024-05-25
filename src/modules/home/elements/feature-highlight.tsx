@@ -1,5 +1,6 @@
 import { Button } from "@nextui-org/react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const FeatureHighlight = () => {
@@ -26,10 +27,13 @@ const FeatureHighlight = () => {
         <p className="text-cyber-ink text-xl md:text-2xl max-w-lg font-[400]">
           Warning: A writing experience unlike anything you&lsquo;ve ever
           experienced-proceed with caution.
-              </p>
-              <br />
-              <Button className="bg-white font-semibold  border-[2px] border-[#000] rounded text-2xl !p-7 !px-12">Start Building
-              </Button>
+        </p>
+        <br />
+        <Link href={'/dashboard/write'}>
+          <Button className="bg-white font-semibold  border-[2px] border-[#000] rounded text-2xl !p-7 !px-12">
+            Start Building
+          </Button>
+        </Link>
       </div>
     </div>
   );

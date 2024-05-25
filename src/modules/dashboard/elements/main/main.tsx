@@ -43,10 +43,12 @@ const Main = () => {
         </div>
         <div className="w-[35%] p-5 ">
           <div className="w-full flex justify-end">
-            <Button className="bg-black text-white text-lg rounded !px-6">
-              <span className="mr-1 ml-[-5px]">{ICONS.write}</span>
-              Start Writing
-            </Button>
+            <Link href={"/dashboard/write"}>
+              <Button className="bg-black text-white text-lg rounded !px-6">
+                <span className="mr-1 ml-[-5px]">{ICONS.write}</span>
+                Start Writing
+              </Button>
+            </Link>
           </div>
           <br />
           {/* resources */}
@@ -65,8 +67,8 @@ const Main = () => {
                         copied ? "bg-blue-200 rounded " : "bg-transparent"
                       }`}
                     >
-                      {process.env.NEXT_PUBLIC_WEB_URL}/subscribe?username={user?.username}
-                      
+                      {process.env.NEXT_PUBLIC_WEB_URL}/subscribe?username=
+                      {user?.username}
                     </small>
                     <div className="absolute h-[38px] w-[90px] rounded-r-lg bg-[#DFE7FF] right-0 flex items-center justify-center">
                       <span className="text-lg opacity-50">{ICONS.copy}</span>

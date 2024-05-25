@@ -6,11 +6,14 @@ import Image from "next/image";
 
 const Toolbar = () => {
   const { user } = useUser();
+   
   return (
     <>
-      <Button color="primary" className="text-lg font-semibold">
+      <Link href={"/dashboard/write"}>
+      <Button color="primary" className="text-lg font-semibold" >
         Start Trial
       </Button>
+      </Link>
       {user ? (
         <>
           <Link href={"/dashboard"}>

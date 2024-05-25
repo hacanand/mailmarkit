@@ -1,12 +1,10 @@
 "use client";
 import { useUser } from "@clerk/nextjs";
 import { NextUIProvider } from "@nextui-org/react";
-//import DashboardSidebar from "@/shared/widgets/dashboard/sidebar/dashboardSidebar";
 import { usePathname } from "next/navigation";
 import DashboardSidebar from "../widgets/dashboard/sidebar/dashboardSidebar";
 import { Toaster } from "react-hot-toast";
 import { addStripe } from "@/actions/add.stripe";
-
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -20,8 +18,9 @@ export default function Providers({ children }: ProvidersProps) {
     await addStripe({ user: user?.id });
   };
 
-  if (!isLoaded) { return null; }
-  else {
+  if (!isLoaded) {
+    return null;
+  } else {
     if (user) {
       isStripeCustomerIdHas();
     }
@@ -38,11 +37,8 @@ export default function Providers({ children }: ProvidersProps) {
         <div className="w-full flex">
           <div className="w-2/12 h-screen scrollbar overflow-y-scroll ">
             <DashboardSidebar />
-            </div>
-            <div className="w-10/12">
-               {children}
-            </div>
-         
+          </div>
+          <div className="w-10/12">{children}</div>
         </div>
       ) : (
         <>{children}</>

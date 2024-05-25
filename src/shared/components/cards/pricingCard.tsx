@@ -3,6 +3,7 @@ import { freePlan, GrowPlan, scalePlan } from "@/app/configs/constants";
 import { ICONS } from "@/shared/utils/icons";
 import { useUser } from "@clerk/nextjs";
 import { Button } from "@nextui-org/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 
@@ -30,7 +31,7 @@ const PricingCard = ({ active }: { active: string }) => {
           width="36"
           height="33"
           fill="string"
-          className="mb-4"
+          className="mb-4 fill-blue-100"
         >
           <path
             fill="#fff"
@@ -59,9 +60,11 @@ const PricingCard = ({ active }: { active: string }) => {
           </div>
         ))}
         <br />
-        <Button className="w-full text-xl !py-6" color="primary">
-          Get Started
-        </Button>
+        <Link href={'/dashboard'} >
+          <Button className="w-full text-xl !py-6" color="primary">
+            Get Started
+          </Button>
+        </Link>
         <p className="pt-1 opacity-[.7] text-center">
           30-day free trail of Scale features, then free forever
         </p>

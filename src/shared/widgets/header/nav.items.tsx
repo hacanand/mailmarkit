@@ -5,7 +5,7 @@ const NavItems = () => {
   return (
       <div className='w-full hidden md:flex items-center'>
           {navItems.map((item, index:number) => (
-              <Link key={index} href={item.title.toString()}
+              <Link key={index} href= '/'
                   className=' px-5 font-bold text-lg'>{item.title}
               </Link>
           ))}    

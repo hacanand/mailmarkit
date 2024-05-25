@@ -4,7 +4,7 @@ import { Button } from '@nextui-org/react'
 import React,{useState} from 'react'
  
 const Pricing = () => {
-    const [active, setActive] = useState('monthly')
+    const [active, setActive] = useState('Yearly')
   return (
     <div className="w-full bg-[#fec8eb]">
       <div className="w-[95%] m-auto py-5 ">
